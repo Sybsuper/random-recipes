@@ -28,11 +28,11 @@ results = []
 
 for dirpath, dirnames, filenames in os.walk('recipes'):
 	for filename in filenames:
-		file_list.append(os.path.join(dirpath, filename))
 		with open(os.path.join(dirpath, filename)) as file:
 			res = json.loads(file.read())
 			if "result" in res:
 				results.append(res["result"])
+				file_list.append(os.path.join(dirpath, filename))
 
 
 file_dict = {}
